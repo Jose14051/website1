@@ -1,0 +1,3 @@
+[build]
+  command = "node server.js"  # Comando para ejecutar tu servidor Node.js
+  publish = "."               # Directorio raíz del proyecto
