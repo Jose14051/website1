@@ -3,11 +3,13 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const { body, validationResult } = require('express-validator');
 const crypto = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Generar una clave secreta aleatoria
 const secretKey = crypto.randomBytes(32).toString('hex');
 
 const users = [
@@ -19,7 +21,17 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/login', (req, res) => {
+app.post('/login', [
+    // Validamos la entrada del usuario
+    body('username').notEmpty().trim().escape(),
+    body('password').notEmpty().trim().escape()
+], (req, res) => {
+    // Verificamos si hay errores de validación
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { username, password } = req.body;
 
     const user = users.find(user => user.username === username && user.password === password);
@@ -50,7 +62,7 @@ function verifyTokenFromCookie(req, res, next) {
 }
 
 app.get('/dashboard', verifyTokenFromCookie, (req, res) => {
-    res.json({ message: 'Welcome to the dashboard!' });
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
 app.listen(PORT, () => {
