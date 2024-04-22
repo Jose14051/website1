@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 3000;
 const secretKey = crypto.randomBytes(32).toString('hex');
 
 const users = [
-    { username: 'user1', password: 'password1', id: 1 },
-    { username: 'user2', password: 'password2', id: 2 }
+    { username: 'NOVA', password: 'password', id: 1 },
+    { username: 'LUZU', password: 'password', id: 2 }
 ];
 
 app.use(bodyParser.json());
