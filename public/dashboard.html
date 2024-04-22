@@ -10,6 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #121212; /* Negro oscuro */
+            color: #ffffff; /* Blanco */
         }
 
         .wrapper {
@@ -17,9 +19,9 @@
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ccc;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #1f1f1f; /* Negro */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Sombra */
         }
 
         header {
@@ -27,11 +29,13 @@
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
+            color: #4ca9ff; /* Azul claro */
+            text-shadow: 0 0 10px rgba(76, 169, 255, 0.5); /* Sombra de texto */
         }
 
         .message {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #00e676; /* Verde claro */
+            color: #121212; /* Negro */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -42,6 +46,27 @@
             font-size: 18px;
             line-height: 1.5;
         }
+
+        .security-measures {
+            margin-top: 20px;
+        }
+
+        .measure {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1f1f1f; /* Negro */
+            border: 2px solid #4ca9ff; /* Azul claro */
+        }
+
+        .measure h3 {
+            margin-top: 0;
+            color: #4ca9ff; /* Azul claro */
+        }
+
+        .measure p {
+            color: #ffffff; /* Blanco */
+        }
     </style>
 </head>
 
@@ -50,6 +75,38 @@
         <header>Welcome to your Dashboard!</header>
         <div class="message">
             <p>Congratulations! You've successfully logged in. You're a pro!</p>
+        </div>
+
+        <div class="security-measures">
+            <div class="measure">
+                <h3>Encriptación de Contraseñas</h3>
+                <p>Las contraseñas de los usuarios están encriptadas antes de almacenarlas en la base de datos. Esto garantiza que incluso si la base de datos es comprometida, las contraseñas no puedan ser fácilmente descifradas por los atacantes.</p>
+            </div>
+
+            <div class="measure">
+                <h3>Validación de Entrada</h3>
+                <p>Los campos de entrada como el nombre de usuario y la contraseña son validados para prevenir ataques de inyección de código y asegurar que los datos ingresados por los usuarios sean seguros.</p>
+            </div>
+
+            <div class="measure">
+                <h3>Verificación de Token JWT</h3>
+                <p>Antes de permitir el acceso a las rutas protegidas, se verifica la validez del token JWT enviado por el cliente. Esto garantiza que solo los usuarios autenticados puedan acceder a recursos protegidos.</p>
+            </div>
+
+            <div class="measure">
+                <h3>Manejo de Errores Detallado</h3>
+                <p>Se han implementado manejadores de errores detallados para varios escenarios, como errores de registro, inicio de sesión, rutas no encontradas y errores internos del servidor. Esto ayuda a proporcionar mensajes de error claros y evitar la exposición de información sensible en caso de fallos.</p>
+            </div>
+
+            <div class="measure">
+                <h3>Configuración de Clave Secreta Aleatoria</h3>
+                <p>La clave secreta utilizada para firmar los tokens JWT se genera aleatoriamente, lo que mejora la seguridad al hacer que sea más difícil para los atacantes adivinar la clave.</p>
+            </div>
+
+            <div class="measure">
+                <h3>Uso de Cookies Seguras</h3>
+                <p>Las cookies se configuran con opciones seguras para prevenir ataques de robo de cookies y mejorar la seguridad de la sesión del usuario.</p>
+            </div>
         </div>
     </div>
 </body>
