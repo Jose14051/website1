@@ -44,3 +44,13 @@ Este proyecto también incluye la implementación de autenticación y autorizaci
 ### Conclusiones
 
 La implementación del servidor y la página de inicio de sesión se llevó a cabo utilizando herramientas y prácticas de seguridad recomendadas para garantizar la protección de los datos de los usuarios. La combinación de encriptación de contraseñas, validación de entrada y verificación de tokens JWT proporciona un nivel sólido de seguridad para la autenticación de los usuarios. Además, se recomienda el uso de HTTPS para mejorar aún más la seguridad de la comunicación entre el cliente y el servidor.
+
+
+### Login
+
+![image](https://github.com/Jose14051/website1/assets/167286755/31415a31-6deb-43b3-87f3-1b2f176c88b9)
+
+### Dashboard
+
+![image](https://github.com/Jose14051/website1/assets/167286755/dbf9234e-be42-4e3c-92b6-b82cd7ed6c75)
+
