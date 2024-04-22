@@ -4,17 +4,18 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const { body, validationResult } = require('express-validator');
-const crypto = require('crypto');
+const crypto = require('crypto'); // Para generar la clave secreta
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Generar una clave secreta aleatoria
 const secretKey = crypto.randomBytes(32).toString('hex');
+console.log('Secret Key:', secretKey);
 
 const users = [
-    { username: 'NOVA', password: 'password', id: 1 },
-    { username: 'LUZU', password: 'password', id: 2 }
+    { username: 'user1', password: 'password1', id: 1 },
+    { username: 'user2', password: 'password2', id: 2 }
 ];
 
 app.use(bodyParser.json());
@@ -62,7 +63,7 @@ function verifyTokenFromCookie(req, res, next) {
 }
 
 app.get('/dashboard', verifyTokenFromCookie, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+    res.json({ message: 'Welcome to the dashboard!' });
 });
 
 app.listen(PORT, () => {
